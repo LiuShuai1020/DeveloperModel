@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DeveloperModel</string>
+    <string name="developer_string_init">初始化</string>
+    <string name="developer_string_click">点击进入开发者模式</string>
 </resources>
