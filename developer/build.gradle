@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply from: 'config/dao.gradle'
+
 group = 'com.liushiyu'
 
 android {
@@ -29,4 +31,8 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.github.LiuShuai1020:Tooltip:1.0.1.1'
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'net.zetetic:android-database-sqlcipher:3.5.4'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
 }

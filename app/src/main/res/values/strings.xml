@@ -2,4 +2,8 @@
     <string name="app_name">DeveloperModel</string>
     <string name="developer_string_init">初始化</string>
     <string name="developer_string_click">点击进入开发者模式</string>
+    <string name="developer_string_to_log_page">前往日志页面</string>
+    <string name="developer_string_db_add">插入数据</string>
+    <string name="developer_string_db_query">查询数据</string>
+    <string name="developer_string_db_delete_all">清除数据</string>
 </resources>

@@ -1,7 +1,11 @@
 package com.liushiyu.developer.presenter;
 
+import com.liushiyu.developer.core.storage.entry.DBTest;
 import com.liushiyu.developer.model.DeveloperStateModel;
 import com.liushiyu.developer.utils.ClickCountUtil;
+import com.liushiyu.developer.utils.DBDeveloperUtils;
+
+import java.util.List;
 
 import static com.liushiyu.developer.model.DeveloperStateModel.DEVELOPER_STATE_OPEN;
 
@@ -11,9 +15,12 @@ public class DeveloperModelManagerPresenter {
 
     private DeveloperStateModel developerStateModel;
 
+    private DBDeveloperUtils dbDeveloperUtils;
+
     public DeveloperModelManagerPresenter() {
         clickCountUtil = new ClickCountUtil();
         developerStateModel = new DeveloperStateModel();
+        dbDeveloperUtils = new DBDeveloperUtils();
     }
 
     public void setClickNumber(int countNumber) {
@@ -45,5 +52,24 @@ public class DeveloperModelManagerPresenter {
             return false;
         }
         return developerStateModel.getDeveloperState() == DEVELOPER_STATE_OPEN;
+    }
+
+    public void setLog(String logTag, String logString) {
+        if (dbDeveloperUtils != null) {
+            dbDeveloperUtils.saveTestData(logTag, logString);
+        }
+    }
+
+    public List<DBTest> getLog() {
+        if (dbDeveloperUtils != null) {
+            return dbDeveloperUtils.getTestData();
+        }
+        return null;
+    }
+
+    public void deleteAllLog() {
+        if (dbDeveloperUtils != null) {
+            dbDeveloperUtils.deleteAllLog();
+        }
     }
 }

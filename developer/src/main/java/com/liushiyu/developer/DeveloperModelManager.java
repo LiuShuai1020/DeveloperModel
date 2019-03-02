@@ -2,8 +2,12 @@ package com.liushiyu.developer;
 
 import android.content.Context;
 
+import com.liushiyu.developer.core.storage.DaoManager;
+import com.liushiyu.developer.core.storage.entry.DBTest;
 import com.liushiyu.developer.presenter.DeveloperModelManagerPresenter;
 import com.liushiyu.developer.utils.TooltipUtil;
+
+import java.util.List;
 
 public class DeveloperModelManager {
 
@@ -34,6 +38,7 @@ public class DeveloperModelManager {
         }
         isInit = true;
         TooltipUtil.init(context);
+        DaoManager.init(context);
     }
 
     public static void setClickNumber(int countNumber) {
@@ -59,6 +64,21 @@ public class DeveloperModelManager {
     public static boolean isDeveloperModel() {
         ensure();
         return getPresenter().isDeveloperModel();
+    }
+
+    public static void setLog(String logTag, String logString) {
+        ensure();
+        getPresenter().setLog(logTag, logString);
+    }
+
+    public static List<DBTest> getLog() {
+        ensure();
+        return getPresenter().getLog();
+    }
+
+    public static void deleteAllLog() {
+        ensure();
+        getPresenter().deleteAllLog();
     }
 
     // 对外方法 - end

@@ -7,31 +7,41 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/initButton"
+        android:id="@+id/logAddButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
-        android:text="@string/developer_string_init"
+        android:text="@string/developer_string_db_add"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/logQueryButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/clickButton"
+        android:id="@+id/logQueryButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
-        android:text="@string/developer_string_click"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/initButton" />
+        android:text="@string/developer_string_db_query"
+        app:layout_constraintLeft_toRightOf="@id/logAddButton"
+        app:layout_constraintRight_toLeftOf="@id/logDeleteAllButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/toLogPageButton"
+        android:id="@+id/logDeleteAllButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
-        android:text="@string/developer_string_to_log_page"
+        android:text="@string/developer_string_db_delete_all"
+        app:layout_constraintLeft_toRightOf="@id/logQueryButton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/logListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logAddButton" />
