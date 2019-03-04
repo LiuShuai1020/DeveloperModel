@@ -16,7 +16,7 @@ import java.util.Locale;
 public class DBDeveloperUtils {
     private static final String DB_DEVELOPER_LOG_KEY = "db_developer_log_key";
 
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS", Locale.CHINA);
 
     public DBDeveloperUtils() {
     }

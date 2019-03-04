@@ -9,26 +9,39 @@
         android:id="@+id/developerAdapterItemLogTag"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp_10"
+        android:padding="@dimen/dp_5"
         android:textColor="@color/color_log_warn"
+        android:text="DeveloperLogTestActivity"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/line"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintBottom_toTopOf="@id/developerAdapterItemLogTime"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/developerAdapterItemLogContent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/developerAdapterItemLogTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_5"
+        android:textColor="@color/color_log_warn"
+        android:text="2019-03-04 10:27:59"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/developerAdapterItemLogContent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/developerAdapterItemLogContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp_10"
+        android:padding="@dimen/dp_5"
+        android:text="我是内容我是内容。。我是内容 "
         android:textColor="@color/color_log_warn"
         app:layout_constraintBottom_toTopOf="@id/line"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintLeft_toRightOf="@id/developerAdapterItemLogTag"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/developerAdapterItemLogTime" />
 
     <View
         android:id="@+id/line"
@@ -38,6 +51,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/developerAdapterItemLogTag" />
+        app:layout_constraintTop_toBottomOf="@id/developerAdapterItemLogContent" />
 
 </android.support.constraint.ConstraintLayout>

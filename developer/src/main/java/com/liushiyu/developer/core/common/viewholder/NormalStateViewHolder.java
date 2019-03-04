@@ -10,6 +10,7 @@ import com.liushiyu.developer.core.common.bean.NormalData;
 
 public class NormalStateViewHolder extends LogBaseViewHolder<NormalData> {
     private TextView developerAdapterItemLogTag;
+    private TextView developerAdapterItemLogTime;
     private TextView developerAdapterItemLogContent;
 
     public NormalStateViewHolder(Context context, ViewGroup root) {
@@ -19,12 +20,14 @@ public class NormalStateViewHolder extends LogBaseViewHolder<NormalData> {
 
     private void init(View root) {
         developerAdapterItemLogTag = root.findViewById(R.id.developerAdapterItemLogTag);
+        developerAdapterItemLogTime = root.findViewById(R.id.developerAdapterItemLogTime);
         developerAdapterItemLogContent = root.findViewById(R.id.developerAdapterItemLogContent);
     }
 
     @Override
     public void setData(NormalData data) {
         developerAdapterItemLogTag.setText(data.getDeveloperLogTag());
+        developerAdapterItemLogTime.setText(data.getDeveloperLogTime());
         developerAdapterItemLogContent.setText(data.getDeveloperLogContent());
     }
 }

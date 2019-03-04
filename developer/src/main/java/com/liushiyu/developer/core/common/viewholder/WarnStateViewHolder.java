@@ -11,6 +11,7 @@ import com.liushiyu.developer.core.common.bean.WarnData;
 public class WarnStateViewHolder extends LogBaseViewHolder<WarnData> {
 
     private TextView developerAdapterItemLogTag;
+    private TextView developerAdapterItemLogTime;
     private TextView developerAdapterItemLogContent;
 
     public WarnStateViewHolder(Context context, ViewGroup root) {
@@ -20,12 +21,14 @@ public class WarnStateViewHolder extends LogBaseViewHolder<WarnData> {
 
     private void init(View root) {
         developerAdapterItemLogTag = root.findViewById(R.id.developerAdapterItemLogTag);
+        developerAdapterItemLogTime = root.findViewById(R.id.developerAdapterItemLogTime);
         developerAdapterItemLogContent = root.findViewById(R.id.developerAdapterItemLogContent);
     }
 
     @Override
     public void setData(WarnData data) {
         developerAdapterItemLogTag.setText(data.getDeveloperLogTag());
+        developerAdapterItemLogTime.setText(data.getDeveloperLogTime());
         developerAdapterItemLogContent.setText(data.getDeveloperLogContent());
     }
 }
