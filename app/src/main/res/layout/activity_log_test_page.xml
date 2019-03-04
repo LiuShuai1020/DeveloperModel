@@ -40,7 +40,7 @@
 
     </LinearLayout>
 
-    <com.liushiyu.developer.core.common.view.DeveloperLogView
+    <com.liushiyu.developer.DeveloperLogView
         android:id="@+id/mDeveloperLogView"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -34,6 +34,11 @@ public class DeveloperModelManager {
         }
     }
 
+    static void setDeveloperLogView(DeveloperLogView developerLogView) {
+        ensure();
+        getPresenter().setDeveloperLogView(developerLogView);
+    }
+
     // 对外方法 - begin
 
     /**
@@ -140,9 +145,9 @@ public class DeveloperModelManager {
 
     /**
      * 需要在Log页面展示的数据
-     *
+     * <p>
      * type 日志类型：
-     *
+     * <p>
      * BaseData.LOG_TYPE_NORMAL 正常信息
      * BaseData.LOG_TYPE_WARN   警告信息
      * BaseData.LOG_TYPE_ERROR  错误信息
@@ -156,7 +161,7 @@ public class DeveloperModelManager {
 
     /**
      * 用户自定义展示页面，获取当前存储的日志信息list
-     * */
+     */
     public static List<DeveloperLogModel> getLog() {
         if (!isDeveloperModel()) {
             return null;
@@ -166,7 +171,7 @@ public class DeveloperModelManager {
 
     /**
      * 用户自定义展示页面，删除所有log
-     * */
+     */
     public static void deleteAllLog() {
         if (!isDeveloperModel()) {
             return;

@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.liushiyu.developer.DeveloperLogView;
 import com.liushiyu.developer.DeveloperModelManager;
 import com.liushiyu.developer.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DeveloperLogTestActivity extends AppCompatActivity {
 
     private String TAG = "DeveloperLogTestActivity";
+    @BindView(R.id.mDeveloperLogView)
+    public DeveloperLogView mDeveloperLogView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,17 +27,23 @@ public class DeveloperLogTestActivity extends AppCompatActivity {
 
     @OnClick(R.id.logNormalButton)
     public void logNormalButtonClick() {
-        DeveloperModelManager.setLog(TAG, "我是内容我是内容。。我是内容");
+        for (int i = 0; i < 1000; i++) {
+            DeveloperModelManager.setLog(TAG, "我是内容我是内容。。我是内容");
+        }
 //        DeveloperModelManager.setNormalLog(TAG, "我是内容我是内容。。我是内容");
     }
 
     @OnClick(R.id.logWarnButton)
     public void logWarnButtonClick() {
-        DeveloperModelManager.setWarnLog(TAG, "我是内容我是内容。。我是内容");
+        for (int i = 0; i < 1000; i++) {
+            DeveloperModelManager.setWarnLog(TAG, "我是内容我是内容。。我是内容");
+        }
     }
 
     @OnClick(R.id.logErrorButton)
     public void logErrorButtonClick() {
-        DeveloperModelManager.setErrorLog(TAG, "我是内容我是内容。。我是内容");
+        for (int i = 0; i < 1000; i++) {
+            DeveloperModelManager.setErrorLog(TAG, "我是内容我是内容。。我是内容");
+        }
     }
 }

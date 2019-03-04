@@ -1,4 +1,4 @@
-package com.liushiyu.developer.core.common.view;
+package com.liushiyu.developer;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.liushiyu.developer.DeveloperModelManager;
-import com.liushiyu.developer.R;
 import com.liushiyu.developer.core.common.bean.BaseData;
 import com.liushiyu.developer.core.common.bean.ErrorData;
 import com.liushiyu.developer.core.common.bean.NormalData;
@@ -19,14 +17,10 @@ import com.liushiyu.developer.core.common.view.recyclerview.MGridLayoutManager;
 import com.liushiyu.developer.core.common.view.recyclerview.MRecyclerView;
 import com.liushiyu.developer.model.DeveloperLogModel;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class DeveloperLogView extends LinearLayout {
-
-    private SimpleDateFormat DATE_FORMAT_YMD = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
 
     private MRecyclerView listView;
 
@@ -52,6 +46,7 @@ public class DeveloperLogView extends LinearLayout {
     private void init(Context context) {
         View root = View.inflate(getContext(), R.layout.developer_log_view, this);
         initView(root);
+        DeveloperModelManager.setDeveloperLogView(this);
         adapter = new DeveloperLogAdapter(context);
         listView.setAdapter(adapter);
 
@@ -78,7 +73,7 @@ public class DeveloperLogView extends LinearLayout {
         queryLogList();
     }
 
-    private void queryLogList() {
+    public void queryLogList() {
         logModelList.clear();
         List<DeveloperLogModel> dbTestList = DeveloperModelManager.getLog();
 

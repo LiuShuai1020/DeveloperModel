@@ -1,5 +1,6 @@
 package com.liushiyu.developer.presenter;
 
+import com.liushiyu.developer.DeveloperLogView;
 import com.liushiyu.developer.core.storage.entry.DeveloperLogCache;
 import com.liushiyu.developer.model.DeveloperLogModel;
 import com.liushiyu.developer.model.DeveloperStateModel;
@@ -18,6 +19,8 @@ public class DeveloperModelManagerPresenter {
     private DeveloperStateModel developerStateModel;
 
     private DBDeveloperUtils dbDeveloperUtils;
+
+    private DeveloperLogView developerLogView;
 
     public DeveloperModelManagerPresenter() {
         clickCountUtil = new ClickCountUtil();
@@ -56,16 +59,28 @@ public class DeveloperModelManagerPresenter {
         return developerStateModel.getDeveloperState() == DEVELOPER_STATE_OPEN;
     }
 
+    public void setDeveloperLogView(DeveloperLogView developerLogView) {
+        this.developerLogView = developerLogView;
+    }
+
+    private void queryLog() {
+        if (developerLogView != null) {
+            developerLogView.queryLogList();
+        }
+    }
+
     public void setLog(String logTag, String logString) {
         if (dbDeveloperUtils != null) {
             dbDeveloperUtils.setDeveloperLogModelData(logTag, logString);
         }
+        queryLog();
     }
 
     public void setLog(String logTag, String logString, int type) {
         if (dbDeveloperUtils != null) {
             dbDeveloperUtils.setDeveloperLogModelData(logTag, logString, type);
         }
+        queryLog();
     }
 
     public List<DeveloperLogModel> getDeveloperLogModels() {
