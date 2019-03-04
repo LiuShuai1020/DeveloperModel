@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.toLogPageButton)
     public void toLogPageButtonClick() {
-//        startActivity(new Intent().setClass(this, DeveloperLogPageActivity.class));
         startActivity(new Intent().setClass(this, DeveloperLogTestActivity.class));
     }
 }
