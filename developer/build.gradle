@@ -4,11 +4,11 @@ apply from: 'config/dao.gradle'
 group = 'com.liushiyu'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -35,4 +35,7 @@ dependencies {
     implementation 'net.zetetic:android-database-sqlcipher:3.5.4'
 
     implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'com.google.code.gson:gson:2.7'
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }

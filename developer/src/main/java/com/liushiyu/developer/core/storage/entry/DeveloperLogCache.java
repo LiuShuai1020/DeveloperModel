@@ -1,64 +1,66 @@
 package com.liushiyu.developer.core.storage.entry;
 
-import com.liushiyu.developer.core.storage.DBTestDao;
+import com.google.gson.Gson;
 import com.liushiyu.developer.core.storage.DaoSession;
+import com.liushiyu.developer.core.storage.DeveloperLogCacheDao;
+import com.liushiyu.developer.model.DeveloperLogModel;
 
 import org.greenrobot.greendao.DaoException;
+import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.converter.PropertyConverter;
 
-@Entity(active = true, nameInDb = "com_liushiyu_developer_db_test")
-public class DBTest {
+@Entity(active = true, nameInDb = "com_liushiyu_developer_db_log")
+public class DeveloperLogCache {
     @Id(autoincrement = true)
     private Long id;
-
     private String key;
-
-    private String logTag;
-    private String logString;
-
+    @Convert(converter = DeveloperLogModelConverter.class, columnType = String.class)
+    private DeveloperLogModel developerLogModel;
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
-
     /** Used for active entity operations. */
-    @Generated(hash = 1485698207)
-    private transient DBTestDao myDao;
-    @Generated(hash = 1876947797)
-    public DBTest(Long id, String key, String logTag, String logString) {
+    @Generated(hash = 1256442962)
+    private transient DeveloperLogCacheDao myDao;
+
+    @Generated(hash = 1889932646)
+    public DeveloperLogCache(Long id, String key, DeveloperLogModel developerLogModel) {
         this.id = id;
         this.key = key;
-        this.logTag = logTag;
-        this.logString = logString;
+        this.developerLogModel = developerLogModel;
     }
-    @Generated(hash = 2069100866)
-    public DBTest() {
+
+    @Generated(hash = 2137300358)
+    public DeveloperLogCache() {
     }
+
     public Long getId() {
         return this.id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getKey() {
         return this.key;
     }
+
     public void setKey(String key) {
         this.key = key;
     }
-    public String getLogTag() {
-        return this.logTag;
+
+    public DeveloperLogModel getDeveloperLogModel() {
+        return this.developerLogModel;
     }
-    public void setLogTag(String logTag) {
-        this.logTag = logTag;
+
+    public void setDeveloperLogModel(DeveloperLogModel developerLogModel) {
+        this.developerLogModel = developerLogModel;
     }
-    public String getLogString() {
-        return this.logString;
-    }
-    public void setLogString(String logString) {
-        this.logString = logString;
-    }
+
     /**
      * Convenient call for {@link org.greenrobot.greendao.AbstractDao#delete(Object)}.
      * Entity must attached to an entity context.
@@ -70,6 +72,7 @@ public class DBTest {
         }
         myDao.delete(this);
     }
+
     /**
      * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
      * Entity must attached to an entity context.
@@ -81,6 +84,7 @@ public class DBTest {
         }
         myDao.refresh(this);
     }
+
     /**
      * Convenient call for {@link org.greenrobot.greendao.AbstractDao#update(Object)}.
      * Entity must attached to an entity context.
@@ -92,11 +96,30 @@ public class DBTest {
         }
         myDao.update(this);
     }
+
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1123991137)
+    @Generated(hash = 1333490888)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getDBTestDao() : null;
+        myDao = daoSession != null ? daoSession.getDeveloperLogCacheDao() : null;
     }
-    
+
+    public static class DeveloperLogModelConverter implements PropertyConverter<DeveloperLogModel, String> {
+
+        @Override
+        public DeveloperLogModel convertToEntityProperty(String databaseValue) {
+            if (databaseValue == null) {
+                return null;
+            }
+            return new Gson().fromJson(databaseValue, DeveloperLogModel.class);
+        }
+
+        @Override
+        public String convertToDatabaseValue(DeveloperLogModel entityProperty) {
+            if (entityProperty == null) {
+                return null;
+            }
+            return new Gson().toJson(entityProperty);
+        }
+    }
 }

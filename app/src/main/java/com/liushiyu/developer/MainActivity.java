@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.liushiyu.developer.activity.DeveloperLogPageActivity;
+import com.liushiyu.developer.activity.DeveloperLogTestActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.toLogPageButton)
     public void toLogPageButtonClick() {
-        startActivity(new Intent().setClass(this, DeveloperLogPageActivity.class));
+//        startActivity(new Intent().setClass(this, DeveloperLogPageActivity.class));
+        startActivity(new Intent().setClass(this, DeveloperLogTestActivity.class));
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_divide">#EEEEEE</color>
+    <color name="color_theme_dark_gray">#656565</color>
+    <color name="color_theme_light_gray">#8c8e93</color>
+    <color name="color_theme_transparent">#00000000</color>
+    <color name="color_theme_white">#FFFFFF</color>
+
+    <color name="color_log_normal">#656565</color>
+    <color name="color_log_warn">#C4C400</color>
+    <color name="color_log_error">#FF0000</color>
+</resources>

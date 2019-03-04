@@ -1,10 +1,12 @@
 package com.liushiyu.developer.presenter;
 
-import com.liushiyu.developer.core.storage.entry.DBTest;
+import com.liushiyu.developer.core.storage.entry.DeveloperLogCache;
+import com.liushiyu.developer.model.DeveloperLogModel;
 import com.liushiyu.developer.model.DeveloperStateModel;
 import com.liushiyu.developer.utils.ClickCountUtil;
 import com.liushiyu.developer.utils.DBDeveloperUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.liushiyu.developer.model.DeveloperStateModel.DEVELOPER_STATE_OPEN;
@@ -56,20 +58,33 @@ public class DeveloperModelManagerPresenter {
 
     public void setLog(String logTag, String logString) {
         if (dbDeveloperUtils != null) {
-            dbDeveloperUtils.saveTestData(logTag, logString);
+            dbDeveloperUtils.setDeveloperLogModelData(logTag, logString);
         }
     }
 
-    public List<DBTest> getLog() {
+    public void setLog(String logTag, String logString, int type) {
         if (dbDeveloperUtils != null) {
-            return dbDeveloperUtils.getTestData();
+            dbDeveloperUtils.setDeveloperLogModelData(logTag, logString, type);
+        }
+    }
+
+    public List<DeveloperLogModel> getDeveloperLogModels() {
+        if (dbDeveloperUtils != null) {
+            List<DeveloperLogCache> logCacheList = dbDeveloperUtils.getDeveloperLogModelData();
+            List<DeveloperLogModel> developerLogModelList = new ArrayList<>();
+            for (int i = 0; i < logCacheList.size(); i++) {
+                DeveloperLogCache cache = logCacheList.get(i);
+                developerLogModelList.add(cache.getDeveloperLogModel());
+            }
+
+            return developerLogModelList;
         }
         return null;
     }
 
     public void deleteAllLog() {
         if (dbDeveloperUtils != null) {
-            dbDeveloperUtils.deleteAllLog();
+            dbDeveloperUtils.deleteDeveloperLogAllData();
         }
     }
 }

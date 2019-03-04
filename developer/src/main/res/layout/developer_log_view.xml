@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/logAddButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_10"
-        android:text="@string/developer_string_db_add"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/logQueryButton"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/logQueryButton"
@@ -22,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
         android:text="@string/developer_string_db_query"
-        app:layout_constraintLeft_toRightOf="@id/logAddButton"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/logDeleteAllButton"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +24,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
+    <com.liushiyu.developer.core.common.view.recyclerview.MRecyclerView
         android:id="@+id/logListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -44,6 +32,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logAddButton" />
+        app:layout_constraintTop_toBottomOf="@id/logDeleteAllButton" />
 
 </android.support.constraint.ConstraintLayout>
