@@ -27,8 +27,8 @@ public class DeveloperLogTestActivity extends AppCompatActivity {
 
     @OnClick(R.id.logNormalButton)
     public void logNormalButtonClick() {
-        for (int i = 0; i < 1000; i++) {
-            DeveloperModelManager.setLog(TAG, "我是内容我是内容。。我是内容");
+        for (int i = 0; i < 100; i++) {
+            DeveloperModelManager.setLog(TAG, "我是内容我是内容。。我是内容 " + (i + 1));
         }
 //        DeveloperModelManager.setNormalLog(TAG, "我是内容我是内容。。我是内容");
     }
@@ -36,14 +36,14 @@ public class DeveloperLogTestActivity extends AppCompatActivity {
     @OnClick(R.id.logWarnButton)
     public void logWarnButtonClick() {
         for (int i = 0; i < 1000; i++) {
-            DeveloperModelManager.setWarnLog(TAG, "我是内容我是内容。。我是内容");
+            DeveloperModelManager.setWarnLog(TAG, "我是内容我是内容。。我是内容 " + (i + 1));
         }
     }
 
     @OnClick(R.id.logErrorButton)
     public void logErrorButtonClick() {
         for (int i = 0; i < 1000; i++) {
-            DeveloperModelManager.setErrorLog(TAG, "我是内容我是内容。。我是内容");
+            DeveloperModelManager.setErrorLog(TAG, "我是内容我是内容。。我是内容 " + (i + 1));
         }
     }
 }
