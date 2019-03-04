@@ -53,6 +53,8 @@ public class DeveloperLogView extends LinearLayout {
         MGridLayoutManager mGridLayoutManager = new MGridLayoutManager(getContext(), 3);
         mGridLayoutManager.setSpanSizeLookup(new SpanSizeLookup());
         listView.setLayoutManager(mGridLayoutManager);
+
+        queryLogList();
     }
 
     private void initView(View root) {
