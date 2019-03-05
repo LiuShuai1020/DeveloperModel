@@ -3,6 +3,9 @@
 ------------
 ### Developer 开发者模式
 ###### 目前主要的核心功能是日志打印，以及一些周边逻辑，本期版本相对单一，后面有时间到话，会陆陆续续加入一些其他的功能，慢慢完善。
+        dependencies {
+	        implementation 'com.github.LiuShuai1020:DeveloperModel:1.0.0.1'
+	    }
 ------------
 ### 使用
 ###### 首先需要初始化。
