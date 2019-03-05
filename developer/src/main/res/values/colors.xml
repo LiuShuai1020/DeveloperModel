@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_divide">#EEEEEE</color>
-    <color name="color_theme_dark_gray">#656565</color>
-    <color name="color_theme_light_gray">#8c8e93</color>
-    <color name="color_theme_transparent">#00000000</color>
-    <color name="color_theme_white">#FFFFFF</color>
-
     <color name="color_log_normal">#656565</color>
     <color name="color_log_warn">#C4C400</color>
     <color name="color_log_error">#FF0000</color>
+    <!-- 白色 -->
+    <color name="color_theme_white">#FFFFFF</color>
+    <!-- 黑色 -->
+    <color name="color_theme_black">#25262c</color>
+    <!-- 红色 -->
+    <color name="color_theme_red">#CA001A</color>
+    <!-- 深红色 -->
+    <color name="color_theme_oxblood_red">#A02122</color>
+    <!-- 灰色 -->
+    <color name="color_theme_gray">#EFEFEF</color>
+    <!-- 深灰色 -->
+    <color name="color_theme_dark_gray">#656565</color>
+    <!-- 浅灰色 -->
+    <color name="color_theme_light_gray">#8c8e93</color>
+    <!-- 透明色 -->
+    <color name="color_theme_transparent">#00000000</color>
 </resources>

@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme.PrimaryButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_button_primary_height</item>
+        <item name="android:textColor">@color/color_theme_red</item>
+        <item name="android:textSize">@dimen/font_button_primary</item>
+        <item name="android:background">@drawable/button_selector</item>
+    </style>
+
+    <style name="AppTheme.PrimaryTenCornerButton" parent="AppTheme.PrimaryButton">
+        <item name="android:background">@drawable/button_selector_with_ten_corner</item>
+    </style>
+
+</resources>
