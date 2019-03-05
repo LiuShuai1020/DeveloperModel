@@ -46,7 +46,6 @@ public class DeveloperLogView extends LinearLayout {
     private void init(Context context) {
         View root = View.inflate(getContext(), R.layout.developer_log_view, this);
         initView(root);
-        DeveloperModelManager.setDeveloperLogView(this);
         adapter = new DeveloperLogAdapter(context);
         listView.setAdapter(adapter);
 

@@ -34,13 +34,7 @@ public class DeveloperModelManager {
         }
     }
 
-    static void setDeveloperLogView(DeveloperLogView developerLogView) {
-        ensure();
-        getPresenter().setDeveloperLogView(developerLogView);
-    }
-
     // 对外方法 - begin
-
     /**
      * 初始化
      */
