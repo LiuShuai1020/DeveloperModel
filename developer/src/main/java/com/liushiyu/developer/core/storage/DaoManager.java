@@ -37,8 +37,7 @@ public class DaoManager {
     }
 
     private void _init(Context c){
-        final Context context = c;
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, DB_NAME);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(c, DB_NAME);
         Database database =
                 helper.getEncryptedWritableDb(UUID.nameUUIDFromBytes(DB_NAME.getBytes()).toString());
         mSession = new DaoMaster(database).newSession();
