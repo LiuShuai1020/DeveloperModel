@@ -23,7 +23,7 @@ public class MGridLayoutManager extends GridLayoutManager implements MScrollable
     }
 
     @Override
-    public void setScrollable(boolean scrollable){
+    public void setScrollable(boolean scrollable) {
         this.mCanScroll = scrollable;
     }
 

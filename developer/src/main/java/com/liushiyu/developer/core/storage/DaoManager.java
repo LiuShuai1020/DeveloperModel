@@ -19,12 +19,13 @@ public class DaoManager {
 
     private DaoSession mSession;
 
-    private DaoManager(){}
+    private DaoManager() {
+    }
 
-    public static DaoManager instance(){
-        if (sInstance == null){
-            synchronized (DaoManager.class){
-                if (sInstance == null){
+    public static DaoManager instance() {
+        if (sInstance == null) {
+            synchronized (DaoManager.class) {
+                if (sInstance == null) {
                     sInstance = new DaoManager();
                 }
             }
@@ -32,11 +33,11 @@ public class DaoManager {
         return sInstance;
     }
 
-    public static void init(Context c){
+    public static void init(Context c) {
         instance()._init(c);
     }
 
-    private void _init(Context c){
+    private void _init(Context c) {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(c, DB_NAME);
         Database database =
                 helper.getEncryptedWritableDb(UUID.nameUUIDFromBytes(DB_NAME.getBytes()).toString());
@@ -46,26 +47,26 @@ public class DaoManager {
     /**
      * 获取数据库 session
      */
-    public DaoSession getSession(){
+    public DaoSession getSession() {
         return checkNotNull(mSession, "please invoke init()");
     }
 
     /**
      * QueryBuilder 转 Observable.fromIterable
      */
-    public static <T> Observable<T> queryBuilderToRxIterable(final QueryBuilder<T> queryBuilder){
+    public static <T> Observable<T> queryBuilderToRxIterable(final QueryBuilder<T> queryBuilder) {
         return Observable.defer(() -> Observable.fromIterable(queryBuilder.list()));
     }
 
     /**
      * QueryBuilder 转 Observable.just
      */
-    public static <T> Observable<List<T>> queryBuilderToRxList(final QueryBuilder<T> queryBuilder){
+    public static <T> Observable<List<T>> queryBuilderToRxList(final QueryBuilder<T> queryBuilder) {
         return Observable.defer(() -> Observable.just(queryBuilder.list()));
     }
 
-    public static <T> T checkNotNull(T t, String cause){
-        if (t == null){
+    public static <T> T checkNotNull(T t, String cause) {
+        if (t == null) {
             throw new NullPointerException(cause);
         }
         return t;

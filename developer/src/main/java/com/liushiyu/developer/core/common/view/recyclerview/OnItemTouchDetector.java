@@ -13,17 +13,19 @@ import android.view.ViewConfiguration;
  * created by liushuai on 2018/11/9
  */
 public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Handler.Callback {
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(RecyclerView viewGroup, View view, int position);
     }
+
     public interface OnItemLongClickListener {
         void onItemLongClick(RecyclerView viewGroup, View view, int position);
     }
+
     public interface OnItemDoubleClickListener {
         void onItemDoubleClick(RecyclerView viewGroup, View view, int position);
     }
 
-    private class ListenerInfo{
+    private class ListenerInfo {
         public OnItemClickListener mOnItemClickListener;
         public OnItemLongClickListener mOnItemLongClickListener;
         public OnItemDoubleClickListener mOnItemDoubleClickListener;
@@ -37,14 +39,14 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
      * the second tap's down event for an interaction to be considered a
      * double-tap.
      */
-    private static final int DOUBLE_TAP_MIN_TIME    = 40;
-    private static final int DOUBLE_TAP_TIMEOUT     = ViewConfiguration.getDoubleTapTimeout();
-    private static final int LONGPRESS_TIMEOUT      = ViewConfiguration.getLongPressTimeout();
-    private static final int TAP_TIMEOUT            = ViewConfiguration.getTapTimeout();
+    private static final int DOUBLE_TAP_MIN_TIME = 40;
+    private static final int DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout();
+    private static final int LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
+    private static final int TAP_TIMEOUT = ViewConfiguration.getTapTimeout();
 
-    private static final int DOUBLE_TAP             = 1;
-    private static final int LONG_PRESS             = 2;
-    private static final int TAP                    = 3;
+    private static final int DOUBLE_TAP = 1;
+    private static final int LONG_PRESS = 2;
+    private static final int TAP = 3;
 
     private Handler mHandler;
     private MotionEvent mCurrentDownEvent;
@@ -88,11 +90,11 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
         return false;
     }
 
-    public OnItemTouchDetector(RecyclerView recyclerView){
+    public OnItemTouchDetector(RecyclerView recyclerView) {
         this(recyclerView, null);
     }
 
-    public OnItemTouchDetector(RecyclerView recyclerView, Handler handler){
+    public OnItemTouchDetector(RecyclerView recyclerView, Handler handler) {
         this.mRecyclerView = recyclerView;
         if (handler != null) {
             mHandler = new Handler(handler.getLooper(), this);
@@ -100,16 +102,16 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
             mHandler = new Handler(this);
         }
 
-        Context context         = recyclerView.getContext();
-        ViewConfiguration configuration   = ViewConfiguration.get(context);
+        Context context = recyclerView.getContext();
+        ViewConfiguration configuration = ViewConfiguration.get(context);
 
-        int touchSlop       = configuration.getScaledTouchSlop();
-        int doubleTapSlop   = configuration.getScaledDoubleTapSlop();
+        int touchSlop = configuration.getScaledTouchSlop();
+        int doubleTapSlop = configuration.getScaledDoubleTapSlop();
 
         mIsLongpressEnabled = true;
 
-        mTouchSlopSquare        = touchSlop * touchSlop;
-        mDoubleTapSlopSquare    = doubleTapSlop * doubleTapSlop;
+        mTouchSlopSquare = touchSlop * touchSlop;
+        mDoubleTapSlopSquare = doubleTapSlop * doubleTapSlop;
     }
 
     private ListenerInfo getListenerInfo() {
@@ -120,15 +122,15 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
         return mListenerInfo;
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener) {
         getListenerInfo().mOnItemClickListener = listener;
     }
 
-    public void setOnItemDoubleClickListener(OnItemDoubleClickListener listener){
+    public void setOnItemDoubleClickListener(OnItemDoubleClickListener listener) {
         getListenerInfo().mOnItemDoubleClickListener = listener;
     }
 
-    public void setOnItemLongClickListener(OnItemLongClickListener longClickListener){
+    public void setOnItemLongClickListener(OnItemLongClickListener longClickListener) {
         getListenerInfo().mOnItemLongClickListener = longClickListener;
     }
 
@@ -239,15 +241,15 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
      *
      * @param event current MotionEvent
      */
-    protected void onClick(MotionEvent event){
-        if (getListenerInfo().mOnItemClickListener != null){
+    protected void onClick(MotionEvent event) {
+        if (getListenerInfo().mOnItemClickListener != null) {
             View view = getChildViewUnder(event);
-            if (view == null){
+            if (view == null) {
                 return;
             }
             int position = mRecyclerView.getChildAdapterPosition(view);
             //return if position is NO_POSITION
-            if (position == RecyclerView.NO_POSITION){
+            if (position == RecyclerView.NO_POSITION) {
                 return;
             }
             getListenerInfo().mOnItemClickListener.onItemClick(mRecyclerView, view, position);
@@ -259,10 +261,10 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
      *
      * @param event current MotionEvent
      */
-    protected void onDoubleClick(MotionEvent event){
-        if (getListenerInfo().mOnItemDoubleClickListener != null){
+    protected void onDoubleClick(MotionEvent event) {
+        if (getListenerInfo().mOnItemDoubleClickListener != null) {
             View view = getChildViewUnder(event);
-            if (view == null){
+            if (view == null) {
                 return;
             }
             int position = mRecyclerView.getChildAdapterPosition(view);
@@ -275,10 +277,10 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
      *
      * @param event current MotionEvent
      */
-    protected void onLongClick(MotionEvent event){
-        if (getListenerInfo().mOnItemLongClickListener != null){
+    protected void onLongClick(MotionEvent event) {
+        if (getListenerInfo().mOnItemLongClickListener != null) {
             View view = getChildViewUnder(event);
-            if (view == null){
+            if (view == null) {
                 return;
             }
             int position = mRecyclerView.getChildAdapterPosition(view);
@@ -290,9 +292,10 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
      * 根据当前坐标获取 item view
      *
      * @param e MotionEvent
-     * @return  item view
+     * @return item view
      */
-    @Nullable protected View getChildViewUnder(MotionEvent e) {
+    @Nullable
+    protected View getChildViewUnder(MotionEvent e) {
         return mRecyclerView.findChildViewUnder(e.getX(), e.getY());
     }
 
@@ -315,7 +318,7 @@ public class OnItemTouchDetector implements RecyclerView.OnItemTouchListener, Ha
     /**
      * clear
      */
-    private void clearEvent(){
+    private void clearEvent() {
         mHandler.removeMessages(DOUBLE_TAP);
         mHandler.removeMessages(TAP);
         mHandler.removeMessages(LONG_PRESS);

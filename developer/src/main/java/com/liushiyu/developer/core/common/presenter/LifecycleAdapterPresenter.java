@@ -16,5 +16,4 @@ public abstract class LifecycleAdapterPresenter<VH extends RecyclerView.ViewHold
     protected Context getContext() {
         return mContext;
     }
-
 }

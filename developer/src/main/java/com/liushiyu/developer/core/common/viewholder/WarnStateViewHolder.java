@@ -15,7 +15,7 @@ public class WarnStateViewHolder extends LogBaseViewHolder<WarnData> {
     private TextView developerAdapterItemLogContent;
 
     public WarnStateViewHolder(Context context, ViewGroup root) {
-        super(context,R.layout.adapter_log_item_warn, root);
+        super(context, R.layout.adapter_log_item_warn, root);
         init(getRootView());
     }
 

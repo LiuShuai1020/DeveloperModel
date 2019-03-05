@@ -19,10 +19,14 @@ public class DeveloperLogCache {
     private String key;
     @Convert(converter = DeveloperLogModelConverter.class, columnType = String.class)
     private DeveloperLogModel developerLogModel;
-    /** Used to resolve relations */
+    /**
+     * Used to resolve relations
+     */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
-    /** Used for active entity operations. */
+    /**
+     * Used for active entity operations.
+     */
     @Generated(hash = 1256442962)
     private transient DeveloperLogCacheDao myDao;
 
@@ -97,7 +101,9 @@ public class DeveloperLogCache {
         myDao.update(this);
     }
 
-    /** called by internal mechanisms, do not call yourself. */
+    /**
+     * called by internal mechanisms, do not call yourself.
+     */
     @Generated(hash = 1333490888)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;

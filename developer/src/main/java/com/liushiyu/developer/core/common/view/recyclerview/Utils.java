@@ -8,8 +8,8 @@ import android.support.v7.widget.RecyclerView;
  * created by liushuai on 2018/11/9
  */
 public class Utils {
-    public static int findLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager){
-        if(layoutManager != null) {
+    public static int findLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
+        if (layoutManager != null) {
 
             if (layoutManager instanceof LinearLayoutManager) {
                 return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
@@ -23,8 +23,8 @@ public class Utils {
         return RecyclerView.NO_POSITION;
     }
 
-    public static int findFirstCompletelyVisibleItemPosition(RecyclerView.LayoutManager layoutManager){
-        if(layoutManager != null) {
+    public static int findFirstCompletelyVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
+        if (layoutManager != null) {
 
             if (layoutManager instanceof LinearLayoutManager) {
                 return ((LinearLayoutManager) layoutManager).findFirstCompletelyVisibleItemPosition();
@@ -38,8 +38,8 @@ public class Utils {
         return RecyclerView.NO_POSITION;
     }
 
-    public static int findFirstVisibleItemPosition(RecyclerView.LayoutManager layoutManager){
-        if(layoutManager != null) {
+    public static int findFirstVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
+        if (layoutManager != null) {
 
             if (layoutManager instanceof LinearLayoutManager) {
                 return ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();

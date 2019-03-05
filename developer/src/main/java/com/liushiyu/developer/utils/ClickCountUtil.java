@@ -11,7 +11,8 @@ public class ClickCountUtil {
     private int countNumber = 10;
     private int currentNumber = 0;
 
-    public ClickCountUtil() {}
+    public ClickCountUtil() {
+    }
 
     public void setClickNumber(int countNumber) {
         this.countNumber = countNumber;
