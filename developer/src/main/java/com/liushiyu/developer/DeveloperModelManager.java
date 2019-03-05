@@ -70,7 +70,7 @@ public class DeveloperModelManager {
      * or
      * DeveloperStateModel.DEVELOPER_STATE_CLOSE
      */
-    public static void setDeveloperModelState(int developerState) {
+    public static void setDeveloperState(int developerState) {
         ensure();
         getPresenter().setDeveloperState(developerState);
     }
