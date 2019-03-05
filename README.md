@@ -17,7 +17,7 @@
 ###### 来进入开发者模式，退出开发者模式是这样做：
 `DeveloperModelManager.setDeveloperState(DeveloperStateModel.DEVELOPER_STATE_CLOSE);`
 ###### 如果你不想要弹出 “您已进入开发者模式” 的话，可以这样:
- `DeveloperModelManager.setDeveloperState(DeveloperStateModel.DEVELOPER_STATE_CLOSE, false);`
+ `DeveloperModelManager.setDeveloperState(DeveloperStateModel.DEVELOPER_STATE_OPEN, false);`
 ### 数据注入
 ###### 下面进入正题，Log类型分为三种：
 * 正常信息(normal 默认色)
