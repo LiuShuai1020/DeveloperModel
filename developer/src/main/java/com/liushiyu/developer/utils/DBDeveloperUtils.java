@@ -52,11 +52,6 @@ public class DBDeveloperUtils {
     }
 
     public void deleteDeveloperLogAllData() {
-        DeveloperLogCacheDao cacheDao = DaoManager.instance().getSession().getDeveloperLogCacheDao();
-        QueryBuilder<DeveloperLogCache> builder = cacheDao.queryBuilder().where(DeveloperLogCacheDao.Properties.Key.eq(DB_DEVELOPER_LOG_KEY));
-        List<DeveloperLogCache> cacheList = builder.list();
-        for (int i = 0; i < cacheList.size(); i++) {
-            mAsyncSession.delete(cacheList.get(i));
-        }
+        mAsyncSession.deleteAll(DeveloperLogCache.class);
     }
 }
